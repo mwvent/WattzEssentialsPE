@@ -54,11 +54,27 @@ class PlayerEvents extends BaseEventHandler{
         $event->setJoinMessage($message);
 
         // Hide vanished players with "noPacket"
+        /*
         foreach($event->getPlayer()->getServer()->getOnlinePlayers() as $p){
             if($this->getPlugin()->isVanished($p) && $this->getPlugin()->hasNoPacket($p)){
                 $event->getPlayer()->hidePlayer($p);
             }
         }
+         * 
+         */
+        /* Hotfix - players where getting tagged as invisible for no reason 
+         * This stops the invisibility setting saved in the players session from taking effect
+         */
+        foreach($event->getPlayer()->getServer()->getOnlinePlayers() as $p){
+            $event->getPlayer()->showPlayer($p);
+            if($this->getPlugin()->isVanished($p)) {
+                $this->getPlugin()->switchVanish($p);
+            }
+        }
+        /*
+         * End Hotfix
+         */
+        
         $i = $this->getPlugin()->getMutedUntil($event->getPlayer());
         if($i instanceof \DateTime && $event->getPlayer()->hasPermission("essentials.mute.notify")){
             $event->getPlayer()->sendMessage(TextFormat::YELLOW . "Remember that you're muted until " . TextFormat::AQUA . $i->format("l, F j, Y") . TextFormat::YELLOW . " at " . TextFormat::AQUA . $i->format("h:ia"));
