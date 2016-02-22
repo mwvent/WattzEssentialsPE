@@ -322,7 +322,7 @@ permissions:
                         description: "Let your repair the equiped armor while using /repair all"
             essentials.reply:
                 default: true
-                description: "Allow the player to quick reply to the last player that messaged him"
+                description: "Allow the player to quick reply to the last player that messaged them"
             essentials.seen:
                 default: op
                 description: "Check player's last online time"
