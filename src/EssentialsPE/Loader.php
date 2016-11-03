@@ -2179,7 +2179,8 @@ class Loader extends PluginBase{
         }
         $state = $ev->willVanish();
         $player->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, $state);
-        $player->setDataProperty(Entity::DATA_SHOW_NAMETAG, Entity::DATA_TYPE_BYTE, ($state ? 0 : 1));
+	// 0.16 Incomapible? commented out :-(
+        // $player->setDataProperty(Entity::DATA_SHOW_NAMETAG, Entity::DATA_TYPE_BYTE, ($state ? 0 : 1));
         /** @var Player[] $pl */
         $pl = [];
         foreach($player->getLevel()->getPlayers() as $p){
