@@ -44,7 +44,7 @@ class TPAHere extends BaseCommand{
             return false;
         }
         $this->getPlugin()->requestTPHere($sender, $player);
-        $player->sendMessage(TextFormat::AQUA . $sender->getName() . TextFormat::GREEN . " wants you to teleport to him, please use:\n/tpaccept to accepts the request\n/tpdeny to decline the invitation");
+        $player->sendMessage(TextFormat::AQUA . $sender->getName() . TextFormat::GREEN . " wants you to teleport to them, please use:\n/tpaccept to accepts the request\n/tpdeny to decline the invitation");
         $sender->sendMessage(TextFormat::GREEN . "Teleport request sent to " . $player->getDisplayName(). "!");
         return true;
     }
