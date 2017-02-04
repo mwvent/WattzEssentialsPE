@@ -78,6 +78,9 @@ class Gamemode extends BaseCommand{
          * The following switch is applied when the user execute:
          * /gamemode <MODE>
          */
+	if(!isset($args[0])){ 
+		$args[0] = 99;
+	}
         if(is_int($args[0])){
             switch($args[0]){
                 case 0:
